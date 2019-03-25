@@ -1,0 +1,54 @@
+.centraliza {
+	text-align: center;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+.centraliza-h1 {
+	text-align: center;
+	margin-left: 32%;
+}
+
+.tela-novo {
+	margin: 8% 22%;
+	background-color: #E0EEE0;
+	padding: 1.5%;
+	border-radius: 8px;
+}
+
+.btn-cafe {
+	margin-left: 80%;
+	float: right;
+	height: 50px;
+	font-size: 22px;
+}
+
+.btn-sorteio {
+	float: right;
+	height: 50px;
+	font-size: 22px;
+	margin-bottom: 30px;
+}
+
+.btnt {
+	float: right;
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-top: 1.8%;
+	margin-bottom: 1.8%;
+}
+
+.div-cafe {
+	width: 100%;
+	height: 40px;
+	margin-bottom: 30px;
+}
+
+.opcoes {
+	float: left;
+	margin-left: 8%;
+}
+
+header {
+	margin-bottom: 2.5%;
+}
