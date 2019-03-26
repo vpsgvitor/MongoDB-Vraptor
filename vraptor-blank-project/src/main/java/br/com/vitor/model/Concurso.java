@@ -2,6 +2,7 @@ package br.com.vitor.model;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import org.bson.types.ObjectId;
 
@@ -11,6 +12,7 @@ public class Concurso {
 	Integer numeroConcurso;
 	Date data;
 	String numeros;
+	List<Vencedor> vencedor;
 
 	public Concurso() {
 		super();
@@ -73,6 +75,22 @@ public class Concurso {
 
 	public String getNumerosFormatados() {
 		return String.valueOf(numeros).replaceAll("\\D+", "");
+	}
+
+	public ObjectId get_id() {
+		return _id;
+	}
+
+	public void set_id(ObjectId _id) {
+		this._id = _id;
+	}
+
+	public List<Vencedor> getVencedor() {
+		return vencedor;
+	}
+
+	public void setVencedor(List<Vencedor> vencedor) {
+		this.vencedor = vencedor;
 	}
 
 	@Override

@@ -25,14 +25,17 @@
 </header>
 <body>
 	<div>
+		<div class="centraliza">
+			<c:if test="${mensagem} != null">
+				<h1>${mensagem}</h1>
+			</c:if>
+		</div>
+
 		<br>
 		<div class="btnt">
 			<button class="btn btn-dark" type="submit"
 				onClick="window.location.href='/your.groupid/vencedor/conferir';">Conferir
 				Números!</button>
-			<button class="btn btn-dark" type="submit"
-				onClick="window.location.href='/your.groupid/concurso/novo';">Adicionar
-				novo Concurso</button>
 		</div>
 		<hr>
 		<div class="centraliza">
@@ -45,13 +48,15 @@
 						<th scope="row">Data</th>
 					</tr>
 				</thead>
-				<c:forEach var="vencedor" items="${vencedorList}">
-					<tr>
-						<td>${vencedor.nome}</td>
-						<td>${vencedor.concurso.numeroConcurso}</td>
-						<td>${vencedor.numeros}</td>
-						<td>${vencedor.concurso.getDataFormatada()}</td>
-					</tr>
+				<c:forEach var="concurso" items="${concursoList}">
+					<c:forEach var="vencedor" items="${concurso.vencedor}">
+						<tr>
+							<td>${vencedor.getNome()}</td>
+							<td>${concurso.numeroConcurso}</td>
+							<td>${vencedor.numeros}</td>
+							<td>${concurso.getDataFormatada()}</td>
+						</tr>
+					</c:forEach>
 				</c:forEach>
 			</table>
 		</div>

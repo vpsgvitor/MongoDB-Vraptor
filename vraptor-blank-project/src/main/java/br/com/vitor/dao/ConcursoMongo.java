@@ -8,8 +8,11 @@ import javax.enterprise.context.ApplicationScoped;
 import org.bson.types.ObjectId;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.Updates;
+
 import br.com.vitor.conexao.ConexaoMongo;
 import br.com.vitor.model.Concurso;
+import br.com.vitor.model.Vencedor;
 
 @ApplicationScoped
 public class ConcursoMongo implements ConcursoDao {
@@ -46,5 +49,18 @@ public class ConcursoMongo implements ConcursoDao {
 	@Override
 	public void remover(ObjectId id) {
 		getCollection().deleteOne(Filters.eq("_id", id));
+	}
+
+	public void addVencedor(Concurso c, Vencedor v) {
+		Concurso concurso = getCollection().find(Filters.eq("_id", c.get_id())).first();
+		if (concurso.getVencedor() == null) {
+			List<Vencedor> listaVencedores = new ArrayList<Vencedor>();
+			listaVencedores.add(v);
+			concurso.setVencedor(listaVencedores);
+		} else {
+			concurso.getVencedor().add(v);
+		}
+		remover(c.get_id());
+		inserir(concurso);
 	}
 }

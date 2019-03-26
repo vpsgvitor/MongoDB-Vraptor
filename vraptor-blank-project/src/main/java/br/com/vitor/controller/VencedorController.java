@@ -29,8 +29,8 @@ public class VencedorController {
 	ConcursoMongo cm = new ConcursoMongo();
 
 	@Get("/lista")
-	public List<Vencedor> lista() {
-		return vm.listar();
+	public List<Concurso> lista() {
+		return cm.listar();
 	}
 
 	@Get("/conferir")

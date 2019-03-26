@@ -1,15 +1,15 @@
 package br.com.vitor.service;
 
-import br.com.vitor.dao.VencedorMongo;
+import br.com.vitor.dao.ConcursoMongo;
 import br.com.vitor.model.Vencedor;
 
 public class VencedorService {
 
-	VencedorMongo vm = new VencedorMongo();
+	ConcursoMongo cm = new ConcursoMongo();
 
 	public boolean testaNumeros(Vencedor v) {
 		if (verificaVencedor(v) >= 5) {
-			vm.inserir(new Vencedor(v.getNome(), v.getNumeros(), v.getConcurso()));
+			cm.addVencedor(v.getConcurso(), v);
 			return true;
 		} else {
 			return false;

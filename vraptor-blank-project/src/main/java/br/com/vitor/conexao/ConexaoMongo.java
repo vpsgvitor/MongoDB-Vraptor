@@ -23,7 +23,6 @@ public class ConexaoMongo {
 				fromProviders(new ValueCodecProvider(), new BsonValueCodecProvider(), new DocumentCodecProvider(),
 						PojoCodecProvider.builder().automatic(true).build()));
 		MongoClientSettings settings = MongoClientSettings.builder().codecRegistry(pojoCodecRegistry).build();
-		
 		mongoClient = MongoClients.create(settings);
 		db = mongoClient.getDatabase("Loteria");
 	}
