@@ -41,8 +41,9 @@ public class VencedorController {
 	@Post("/verifica")
 	public void verifica(String nome, String numeros, String idConcurso) {
 		result.include("mensagem",
-				vs.testaNumeros(new Vencedor(nome, numeros, cm.buscar(new ObjectId(idConcurso)))) ? "Deu boa"
-						: "Deu ruim");
+				vs.testaNumeros(new Vencedor(nome, numeros, cm.buscar(new ObjectId(idConcurso))))
+						? "Parabéns! Você conseguiu!"
+						: "Não foi desta vez, tente novamente.");
 		result.redirectTo(this).lista();
 	}
 }

@@ -26,7 +26,7 @@
 <body>
 	<div>
 		<div class="centraliza">
-			<c:if test="${mensagem} != null">
+			<c:if test="${mensagem != null}">
 				<h1>${mensagem}</h1>
 			</c:if>
 		</div>
